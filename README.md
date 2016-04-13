@@ -1,6 +1,6 @@
 Ping-Wizard
 ==================
-This python file was originally created to ping a few [League of Legends](http://na.leagueoflegends.com/) server regions (NA, EUW, EUNE, OCE). However, you can use  
+This python file was originally created to ping a few [League of Legends](http://na.leagueoflegends.com/) server regions (NA, EUW, EUNE, OCE). However, you can use 
 this class to ping any url/ip. You can simply create an instance of the PingWizard class and change the title, thread count or most importantly, the urls or ips 
 you want to check. The console output will display title, threads pinging what url/ip and then then the output line in this format: name (ip address): ping ms. If an 
 ip address is invalid it will automatically be removed before threads are assigned. If an ip address does not respond, the output line will read: name (ip address): 
