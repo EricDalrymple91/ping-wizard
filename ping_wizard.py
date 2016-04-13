@@ -85,13 +85,14 @@ class PingWizard(object):
         while True:
             ip = self.convert_to_ip(q.get())
             name = "".join([x for x in self.ips if self.ips[x] == ip])
+            system = platform.system()
+            ping_statement = 'ping {0} 1 {1}'.format('-n' if system == 'Windows' else '-c', ip)
+            null_statement = '{0}'.format('nul' if system == 'Windows' else '/dev/null')
             with self.lock:
                 print 'Thread {0}: Pinging {1} ({2})'.format(i, name, ip)
-            system = platform.system()
             start = time.time()
-            ret = subprocess.call('ping {0} 1 {1}'.format("-n" if system == 'Windows' else '-c', ip),
-                                  shell=True, stderr=subprocess.STDOUT,
-                                  stdout=open('{0}'.format('nul' if system == 'Windows' else '/dev/null'), 'w'))
+            ret = subprocess.call(ping_statement, shell=True, stderr=subprocess.STDOUT,
+                                  stdout=open(null_statement, 'w'))
             duration = time.time() - start
             if ret == 0:
                 with self.lock:
