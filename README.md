@@ -43,31 +43,31 @@ As stated above you can simply import this class into another file and make chan
 ```python
 from ping_wizard import PingWizard
 ```
-Create an instance of PingWizard
+Create an instance of PingWizard:
 ```python
 pw = PingWizard()
 ```
-You can change the title
+You can change the title:
 ```python
 pw.title = "Hello World!"
 ```
-You can change amount of threads to use
+You can change amount of threads to use:
 ```python
 pw.thread_count = 2
 ```
-You can add an ip address
+You can add an ip address:
 ```python
 pw.ips["NA2"] = "104.160.131.3"
 ```
-You can also add an ip address in the form of a url
+You can also add an ip address in the form of a url:
 ```python
 pw.ips["NA2"] = "104.160.131.3"
 ```
-Additionally, you can change the entire ips dictionary if you want
+Additionally, you can change the entire ips dictionary if you want:
 ```python
 pw.ips = {"NA2": "104.160.131.3", "google": "www.google.com"}
 ```
-Finally, you have to call the *get_pings* method to run the class instance
+Finally, you have to call the *get_pings* method to run the class instance:
 ```python
 pw.get_pings()
 ```
