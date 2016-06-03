@@ -30,7 +30,8 @@ class PingWizard(object):
         self.ips = {"NA": "104.160.131.3",
                     "EUW": "104.160.141.3",
                     "EUNE": "104.160.142.3",
-                    "OCE": "104.160.156.3"}
+                    "OCE": "104.160.156.1",
+                    "LAN": "104.160.136.3"}
         self.thread_count = len(self.ips)
         self.lock = threading.Lock()
         self.data = list()
@@ -85,14 +86,13 @@ class PingWizard(object):
         while True:
             ip = self.convert_to_ip(q.get())
             name = "".join([x for x in self.ips if self.ips[x] == ip])
-            system = platform.system()
-            ping_statement = 'ping {0} 1 {1}'.format('-n' if system == 'Windows' else '-c', ip)
-            null_statement = '{0}'.format('nul' if system == 'Windows' else '/dev/null')
             with self.lock:
                 print 'Thread {0}: Pinging {1} ({2})'.format(i, name, ip)
+            system = platform.system()
             start = time.time()
-            ret = subprocess.call(ping_statement, shell=True, stderr=subprocess.STDOUT,
-                                  stdout=open(null_statement, 'w'))
+            ret = subprocess.call('ping {0} 1 {1}'.format("-n" if system == 'Windows' else '-c', ip),
+                                  shell=True, stderr=subprocess.STDOUT,
+                                  stdout=open('{0}'.format('nul' if system == 'Windows' else '/dev/null'), 'w'))
             duration = time.time() - start
             if ret == 0:
                 with self.lock:
