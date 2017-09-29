@@ -6,18 +6,18 @@ you want to check. The console output will display title, threads pinging what u
 ip address is invalid it will automatically be removed before threads are assigned. If an ip address does not respond, the output line will read: name (ip address): 
 did not respond.
 
-###Dependencies
+### Dependencies
 
 ping-wizard requires Python 2.7.3 or newer.
 
-###Download games
+### Download games
 
 You can obtain this program package by either going [here](https://github.com/EricDalrymple91/ping-wizard) :octocat: and downloading the zip file, or 
 cloning this repo to your machine using:
 
 	git clone https://github.com/EricDalrymple91/ping-wizard.git
 	
-###Execution
+## Execution
 ----------------
 In command line/terminal, navigate to the parent directory and run *ping_wizard.py*.
 
