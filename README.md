@@ -17,7 +17,7 @@ cloning this repo to your machine using:
 
 	git clone https://github.com/EricDalrymple91/ping-wizard.git
 	
-##Execution
+###Execution
 ----------------
 In command line/terminal, navigate to the parent directory and run *ping_wizard.py*.
 
